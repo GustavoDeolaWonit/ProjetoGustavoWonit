@@ -34,7 +34,7 @@ OBS: A aplicação estará disponível na porta configurada (por padrão, `local
 - `util/` → Gerenciamento de autenticação e cache de token
 - `main.go` → Inicialização da aplicação e rotas
 
-  ## Autenticação
+ ## Autenticação
 
 A autenticação com a API XContact é feita via login de supervisor, que retorna um token JWT.
 Esse token é armazenado em memória e reutilizado por até 1 hora, evitando múltiplas autenticações desnecessárias.
