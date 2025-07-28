@@ -9,7 +9,7 @@ Este projeto consiste em uma aplicação de integração com o sistema XContact 
 <h3>2. Acesse a pasta do projeto:</h3>
 - cd ProjetoGustavoWonit
 
-<h3>3. Execute o projeto:</h3>
+<h5>3. Execute o projeto:</h5>
 - go run main.go
 OBS: A aplicação estará disponível na porta configurada (por padrão, `localhost:8080`).
 
