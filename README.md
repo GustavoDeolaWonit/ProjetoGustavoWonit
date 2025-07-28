@@ -23,3 +23,26 @@ OBS: A aplicação estará disponível na porta configurada (por padrão, `local
 - ❌ Remoção de ramais
 - 🔐 Gerenciamento de autenticação com cache de token
 - 📄 Documentação dos endpoints via Swagger
+
+## Estrutura do Projeto
+
+- `controller/` → Define os handlers HTTP dos endpoints
+- `service/` → Contém a lógica de negócio da aplicação
+- `repositories/` → Responsável por chamadas HTTP externas e persistência
+- `model/` → Define os modelos de entidade
+- `dto/` → Define os modelos de requisição e resposta
+- `util/` → Gerenciamento de autenticação e cache de token
+- `main.go` → Inicialização da aplicação e rotas
+
+  ## Autenticação
+
+A autenticação com a API XContact é feita via login de supervisor, que retorna um token JWT.
+Esse token é armazenado em memória e reutilizado por até 1 hora, evitando múltiplas autenticações desnecessárias.
+
+A função GetToken() gerencia esse processo automaticamente:
+
+Se o token ainda estiver válido, ele é reutilizado.
+
+Se estiver expirado ou ausente, é feito um novo login via POST /api/v4/login/supervisor.
+
+A sincronização de acesso ao token é feita com sync.RWMutex para garantir segurança em ambientes concorrentes.
