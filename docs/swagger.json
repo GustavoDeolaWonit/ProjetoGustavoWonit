@@ -1,0 +1,480 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Api para cadastro de consulta de ramais",
+        "title": "API Wonit",
+        "contact": {},
+        "version": "2.0"
+    },
+    "paths": {
+        "/api/v2/ramais": {
+            "get": {
+                "description": "Listar todos os ramais",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ramal"
+                ],
+                "summary": "Listar Ramais",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RamalResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v2/ramal": {
+            "post": {
+                "description": "Criar um ramal",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ramal"
+                ],
+                "summary": "Criar ramal",
+                "parameters": [
+                    {
+                        "description": "Ramal data",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RamalRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RamalResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/v2/ramal/{id}": {
+            "get": {
+                "description": "Buscar Ramal pelo Nome",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ramal"
+                ],
+                "summary": "Buscar Ramal",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID do Ramal",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RamalResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "put": {
+                "description": "Atualiza os dados de um ramal existente pelo ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ramal"
+                ],
+                "summary": "Atualizar Ramal",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID do Ramal",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Dados do Ramal para atualização",
+                        "name": "ramal",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.RamalRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RamalResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Exclui os dados de um ramal existente pelo ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Ramal"
+                ],
+                "summary": "Atualizar Ramal",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID do Ramal",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.RamalResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dto.RamalRequest": {
+            "type": "object",
+            "required": [
+                "grupo",
+                "nome",
+                "numero",
+                "senha"
+            ],
+            "properties": {
+                "accountcode": {
+                    "type": "string",
+                    "example": "ACC123"
+                },
+                "allow": {
+                    "type": "string",
+                    "example": "opus,g729,ulaw"
+                },
+                "avpf": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "call_limit": {
+                    "type": "integer",
+                    "example": 3
+                },
+                "callerid": {
+                    "type": "string",
+                    "example": "Gustavo \u003c1200\u003e"
+                },
+                "callgroup": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "dtlscertfile": {
+                    "type": "string",
+                    "example": "/etc/ssl/certs/mycert.pem"
+                },
+                "dtlsenable": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "dtlssetup": {
+                    "type": "string",
+                    "example": "actpass"
+                },
+                "dtlsverify": {
+                    "type": "string",
+                    "example": "verify"
+                },
+                "dtmfmode": {
+                    "type": "string",
+                    "example": "rfc2833"
+                },
+                "encryption": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "grupo": {
+                    "type": "string",
+                    "example": "GR-RAMAIS"
+                },
+                "hassip": {
+                    "type": "string",
+                    "example": "yes"
+                },
+                "icesupport": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "insecure": {
+                    "type": "string",
+                    "example": "port,invite"
+                },
+                "language": {
+                    "type": "string",
+                    "example": "pt-BR"
+                },
+                "mac": {
+                    "type": "string",
+                    "example": "00:11:22:33:44:55"
+                },
+                "multi_regra": {
+                    "type": "string",
+                    "example": ""
+                },
+                "musiconhold": {
+                    "type": "string",
+                    "example": "default"
+                },
+                "nat": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "nome": {
+                    "type": "string",
+                    "example": "Gustavo"
+                },
+                "numero": {
+                    "type": "string",
+                    "example": "1200"
+                },
+                "pickupgroup": {
+                    "type": "string",
+                    "example": "1"
+                },
+                "rtcp_mux": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "senha": {
+                    "type": "string",
+                    "example": "minhaSenhaForte"
+                },
+                "subscribecontext": {
+                    "type": "string",
+                    "example": "BLF_X5"
+                },
+                "tem_multi": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "transport": {
+                    "type": "string",
+                    "example": "udp"
+                },
+                "xc_tipo": {
+                    "type": "string",
+                    "example": "ramal"
+                }
+            }
+        },
+        "dto.RamalResponse": {
+            "type": "object",
+            "properties": {
+                "accountcode": {
+                    "type": "string",
+                    "example": ""
+                },
+                "allow": {
+                    "type": "string",
+                    "example": "opus,g729,ulaw"
+                },
+                "avpf": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "call_limit": {
+                    "type": "integer",
+                    "example": 3
+                },
+                "callerid": {
+                    "type": "string",
+                    "example": ""
+                },
+                "callgroup": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "defaultuser": {
+                    "type": "string",
+                    "example": ""
+                },
+                "dtlscertfile": {
+                    "type": "string",
+                    "example": ""
+                },
+                "dtlsenable": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "dtlssetup": {
+                    "type": "string",
+                    "example": ""
+                },
+                "dtlsverify": {
+                    "type": "string",
+                    "example": ""
+                },
+                "dtmfmode": {
+                    "type": "string",
+                    "example": ""
+                },
+                "encryption": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "grupo": {
+                    "type": "string",
+                    "example": "GR-RAMAIS"
+                },
+                "hassip": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "icesupport": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "id": {
+                    "type": "integer",
+                    "example": 12
+                },
+                "insecure": {
+                    "type": "string",
+                    "example": ""
+                },
+                "ipaddr": {
+                    "type": "string",
+                    "example": ""
+                },
+                "language": {
+                    "type": "string",
+                    "example": "pt-BR"
+                },
+                "lastms": {
+                    "type": "string",
+                    "example": ""
+                },
+                "mac": {
+                    "type": "string",
+                    "example": ""
+                },
+                "multi_regra": {
+                    "type": "string",
+                    "example": ""
+                },
+                "musiconhold": {
+                    "type": "string",
+                    "example": ""
+                },
+                "nat": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "nome": {
+                    "type": "string",
+                    "example": "gustavo"
+                },
+                "numero": {
+                    "type": "string",
+                    "example": "1006"
+                },
+                "pickupgroup": {
+                    "type": "string",
+                    "example": ""
+                },
+                "rtcp_mux": {
+                    "type": "string",
+                    "example": "no"
+                },
+                "senha": {
+                    "type": "string",
+                    "example": "w94B7olTizA"
+                },
+                "subscribecontext": {
+                    "type": "string",
+                    "example": "BLF_X5"
+                },
+                "tem_multi": {
+                    "type": "boolean",
+                    "example": false
+                },
+                "transport": {
+                    "type": "string",
+                    "example": "udp"
+                },
+                "useragent": {
+                    "type": "string",
+                    "example": ""
+                },
+                "xc_tipo": {
+                    "type": "string",
+                    "example": "ramal"
+                }
+            }
+        }
+    }
+}

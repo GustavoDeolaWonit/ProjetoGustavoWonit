@@ -1,0 +1,340 @@
+definitions:
+  dto.RamalRequest:
+    properties:
+      accountcode:
+        example: ACC123
+        type: string
+      allow:
+        example: opus,g729,ulaw
+        type: string
+      avpf:
+        example: "no"
+        type: string
+      call_limit:
+        example: 3
+        type: integer
+      callerid:
+        example: Gustavo <1200>
+        type: string
+      callgroup:
+        example: 1
+        type: integer
+      dtlscertfile:
+        example: /etc/ssl/certs/mycert.pem
+        type: string
+      dtlsenable:
+        example: "no"
+        type: string
+      dtlssetup:
+        example: actpass
+        type: string
+      dtlsverify:
+        example: verify
+        type: string
+      dtmfmode:
+        example: rfc2833
+        type: string
+      encryption:
+        example: "no"
+        type: string
+      grupo:
+        example: GR-RAMAIS
+        type: string
+      hassip:
+        example: "yes"
+        type: string
+      icesupport:
+        example: "no"
+        type: string
+      insecure:
+        example: port,invite
+        type: string
+      language:
+        example: pt-BR
+        type: string
+      mac:
+        example: "00:11:22:33:44:55"
+        type: string
+      multi_regra:
+        example: ""
+        type: string
+      musiconhold:
+        example: default
+        type: string
+      nat:
+        example: "no"
+        type: string
+      nome:
+        example: Gustavo
+        type: string
+      numero:
+        example: "1200"
+        type: string
+      pickupgroup:
+        example: "1"
+        type: string
+      rtcp_mux:
+        example: "no"
+        type: string
+      senha:
+        example: minhaSenhaForte
+        type: string
+      subscribecontext:
+        example: BLF_X5
+        type: string
+      tem_multi:
+        example: false
+        type: boolean
+      transport:
+        example: udp
+        type: string
+      xc_tipo:
+        example: ramal
+        type: string
+    required:
+    - grupo
+    - nome
+    - numero
+    - senha
+    type: object
+  dto.RamalResponse:
+    properties:
+      accountcode:
+        example: ""
+        type: string
+      allow:
+        example: opus,g729,ulaw
+        type: string
+      avpf:
+        example: "no"
+        type: string
+      call_limit:
+        example: 3
+        type: integer
+      callerid:
+        example: ""
+        type: string
+      callgroup:
+        example: 1
+        type: integer
+      defaultuser:
+        example: ""
+        type: string
+      dtlscertfile:
+        example: ""
+        type: string
+      dtlsenable:
+        example: "no"
+        type: string
+      dtlssetup:
+        example: ""
+        type: string
+      dtlsverify:
+        example: ""
+        type: string
+      dtmfmode:
+        example: ""
+        type: string
+      encryption:
+        example: "no"
+        type: string
+      grupo:
+        example: GR-RAMAIS
+        type: string
+      hassip:
+        example: "no"
+        type: string
+      icesupport:
+        example: "no"
+        type: string
+      id:
+        example: 12
+        type: integer
+      insecure:
+        example: ""
+        type: string
+      ipaddr:
+        example: ""
+        type: string
+      language:
+        example: pt-BR
+        type: string
+      lastms:
+        example: ""
+        type: string
+      mac:
+        example: ""
+        type: string
+      multi_regra:
+        example: ""
+        type: string
+      musiconhold:
+        example: ""
+        type: string
+      nat:
+        example: "no"
+        type: string
+      nome:
+        example: gustavo
+        type: string
+      numero:
+        example: "1006"
+        type: string
+      pickupgroup:
+        example: ""
+        type: string
+      rtcp_mux:
+        example: "no"
+        type: string
+      senha:
+        example: w94B7olTizA
+        type: string
+      subscribecontext:
+        example: BLF_X5
+        type: string
+      tem_multi:
+        example: false
+        type: boolean
+      transport:
+        example: udp
+        type: string
+      useragent:
+        example: ""
+        type: string
+      xc_tipo:
+        example: ramal
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Api para cadastro de consulta de ramais
+  title: API Wonit
+  version: "2.0"
+paths:
+  /api/v2/ramais:
+    get:
+      consumes:
+      - application/json
+      description: Listar todos os ramais
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.RamalResponse'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Listar Ramais
+      tags:
+      - Ramal
+  /api/v2/ramal:
+    post:
+      consumes:
+      - application/json
+      description: Criar um ramal
+      parameters:
+      - description: Ramal data
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RamalRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.RamalResponse'
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Criar ramal
+      tags:
+      - Ramal
+  /api/v2/ramal/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Exclui os dados de um ramal existente pelo ID
+      parameters:
+      - description: ID do Ramal
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.RamalResponse'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Atualizar Ramal
+      tags:
+      - Ramal
+    get:
+      consumes:
+      - application/json
+      description: Buscar Ramal pelo Nome
+      parameters:
+      - description: ID do Ramal
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.RamalResponse'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Buscar Ramal
+      tags:
+      - Ramal
+    put:
+      consumes:
+      - application/json
+      description: Atualiza os dados de um ramal existente pelo ID
+      parameters:
+      - description: ID do Ramal
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Dados do Ramal para atualização
+        in: body
+        name: ramal
+        required: true
+        schema:
+          $ref: '#/definitions/dto.RamalRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.RamalResponse'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Atualizar Ramal
+      tags:
+      - Ramal
+swagger: "2.0"
