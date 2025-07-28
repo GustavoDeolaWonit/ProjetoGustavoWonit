@@ -1,19 +1,19 @@
 <h1>Projeto Wonit</h1>
 Este projeto consiste em uma aplicação de integração com o sistema XContact da Wonit, desenvolvida como parte de um desafio prático após a certificação em Golang. A aplicação realiza o cadastro, edição e exclusão de ramais, além de gerenciar a autenticação utilizando cache de token. Os endpoints estão documentados e disponíveis via Swagger.
 
-<h1>Como executar:</h1>
+## Como executar:
 
-<h3>1. Clone o repositório com:</h3>
+<h4>1. Clone o repositório com:</h4>
 - git clone https://github.com/GustavoDeolaWonit/ProjetoGustavoWonit.git
   
-<h3>2. Acesse a pasta do projeto:</h3>
+<h4>2. Acesse a pasta do projeto:</h4>
 - cd ProjetoGustavoWonit
 
-<h5>3. Execute o projeto:</h5>
+<h4>3. Execute o projeto:</h4>
 - go run main.go
 OBS: A aplicação estará disponível na porta configurada (por padrão, `localhost:8080`).
 
-<h3>4. Acesse a documentação Swagger:</h3>
+<h4>4. Acesse a documentação Swagger:</h4>
 - http://localhost:8080/swagger/index.html
 
 ## Funcionalidades
