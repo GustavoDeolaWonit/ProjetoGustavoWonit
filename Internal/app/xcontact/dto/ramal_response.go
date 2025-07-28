@@ -1,0 +1,39 @@
+package dto
+
+type RamalResponse struct {
+	Id               int     `json:"id" example:"12"`
+	Numero           string  `json:"numero" example:"1006"`
+	Nome             string  `json:"nome" example:"gustavo"`
+	Senha            string  `json:"senha" example:"w94B7olTizA"`
+	Grupo            string  `json:"grupo" example:"GR-RAMAIS"`
+	DefaultUser      *string `json:"defaultuser" example:""`
+	UserAgent        *string `json:"useragent" example:""`
+	HasSIP           string  `json:"hassip" example:"no"`
+	IpAddr           *string `json:"ipaddr" example:""`
+	LastMS           *string `json:"lastms" example:""`
+	Allow            string  `json:"allow" example:"opus,g729,ulaw"`
+	Insecure         *string `json:"insecure" example:""`
+	SubscribeContext string  `json:"subscribecontext" example:"BLF_X5"`
+	PickupGroup      string  `json:"pickupgroup" example:""`
+	CallGroup        int     `json:"callgroup" example:"1"`
+	Transport        string  `json:"transport" example:"udp"`
+	CallLimit        int     `json:"call_limit" example:"3"`
+	Nat              string  `json:"nat" example:"no"`
+	Mac              *string `json:"mac" example:""`
+	AccountCode      *string `json:"accountcode" example:""`
+	DtmfMode         *string `json:"dtmfmode" example:""`
+	Language         string  `json:"language" example:"pt-BR"`
+	MusicOnHold      *string `json:"musiconhold" example:""`
+	CallerID         *string `json:"callerid" example:""`
+	Encryption       string  `json:"encryption" example:"no"`
+	Avpf             string  `json:"avpf" example:"no"`
+	IceSupport       string  `json:"icesupport" example:"no"`
+	DtlsEnable       string  `json:"dtlsenable" example:"no"`
+	DtlsVerify       *string `json:"dtlsverify" example:""`
+	DtlsCertFile     *string `json:"dtlscertfile" example:""`
+	DtlsSetup        *string `json:"dtlssetup" example:""`
+	RtcpMux          string  `json:"rtcp_mux" example:"no"`
+	XcTipo           string  `json:"xc_tipo" example:"ramal"`
+	TemMulti         bool    `json:"tem_multi" example:"false"`
+	MultiRegra       *string `json:"multi_regra" example:""`
+}
