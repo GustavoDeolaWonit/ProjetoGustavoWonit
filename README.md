@@ -46,3 +46,17 @@ Se o token ainda estiver válido, ele é reutilizado.
 Se estiver expirado ou ausente, é feito um novo login via POST /api/v4/login/supervisor.
 
 A sincronização de acesso ao token é feita com sync.RWMutex para garantir segurança em ambientes concorrentes.
+
+## Testes
+
+A aplicação inclui testes automatizados usando o pacote `testing` do Go.  
+Execute os testes com:
+
+- go test -run (Nome do Test)
+
+OBS: É preciso entrar no caminho da pasta onde está o teste, utilize cd (caminho)
+
+## Autor
+
+Gustavo Cabral Deola  
+Desenvolvedor Backend | Golang 
